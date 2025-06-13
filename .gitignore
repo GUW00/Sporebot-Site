@@ -1,0 +1,13 @@
+# Node modules, build artifacts, etc. (if you ever add tooling)
+node_modules/
+dist/
+
+# VS Code workspace settings
+.vscode/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Env files
+*.env
