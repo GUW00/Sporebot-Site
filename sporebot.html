@@ -4,78 +4,76 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title></title>
-  <meta name="description" content="" />
-  <meta property="og:title" content="" />
-  <meta property="og:description" content="" />
-  <meta property="og:image" content="" />
-  <meta property="og:url" content="" />
+  <title>Sporebot | Mushroom Planet</title>
+  <meta name="description" content="Grow your mushroom farm, earn SPORES, brew potions, and explore Web3 — all from Discord." />
+  <meta property="og:title" content="Sporebot | Mushroom Planet" />
+  <meta property="og:description" content="Grow your mushroom farm, earn SPORES, brew potions, and explore Web3 — all from Discord." />
+  <meta property="og:image" content="/images/social-card.png" />
+  <meta property="og:url" content="https://mushroomplanet.xyz/sporebot.html" />
 
   <link id="font-link" rel="stylesheet" href="" />
   <link rel="stylesheet" href="styles.css" />
 
-<!-- Theme and metadata setup -->
-<script type="module">
-  import config from './config.js';
+  <!-- Theme and metadata setup -->
+  <script type="module">
+    import config from './config.js';
 
-  // Unified theme object
-  const theme = config.theme;
+    const root = document.documentElement;
+    const theme = config.theme;
 
-  // Set SEO metadata
-  document.title = config.site.title;
-  document.querySelector('meta[name="description"]').content = config.site.description;
-  document.querySelector('meta[property="og:title"]').content = config.metadata.socialCard.title;
-  document.querySelector('meta[property="og:description"]').content = config.metadata.socialCard.description;
-  document.querySelector('meta[property="og:image"]').content = config.metadata.socialCard.image;
-  document.querySelector('meta[property="og:url"]').content = config.site.url;
+    // Set SEO and OG tags
+    document.title = "Sporebot | " + config.site.title;
+    document.querySelector('meta[name="description"]').content = config.site.description;
+    document.querySelector('meta[property="og:title"]').content = config.metadata.socialCard.title;
+    document.querySelector('meta[property="og:description"]').content = config.metadata.socialCard.description;
+    document.querySelector('meta[property="og:image"]').content = config.metadata.socialCard.image;
+    document.querySelector('meta[property="og:url"]').content = config.site.url + "/sporebot.html";
 
-  // Load Google Fonts
-  const fontParam = config.metadata.googleFonts.join('&family=');
-  document.getElementById('font-link').href = `https://fonts.googleapis.com/css2?family=${fontParam}&display=swap`;
+    // Load fonts
+    const fontParam = config.metadata.googleFonts.join('&family=');
+    document.getElementById('font-link').href = `https://fonts.googleapis.com/css2?family=${fontParam}&display=swap`;
 
-  // Apply CSS theme variables
-  const root = document.documentElement;
-  Object.entries(theme.colors).forEach(([key, val]) => {
-    if (typeof val === 'string') {
-      root.style.setProperty(`--clr-${key}`, val);
-    } else {
-      Object.entries(val).forEach(([subKey, subVal]) => {
-        root.style.setProperty(`--clr-${key}-${subKey}`, subVal);
-      });
-    }
-  });
-  root.style.setProperty('--font-heading', theme.fonts.heading);
-  root.style.setProperty('--font-body', theme.fonts.body);
+    // Set theme colors and fonts
+    Object.entries(theme.colors).forEach(([key, val]) => {
+      if (typeof val === 'string') {
+        root.style.setProperty(`--clr-${key}`, val);
+      } else {
+        Object.entries(val).forEach(([subKey, subVal]) => {
+          root.style.setProperty(`--clr-${key}-${subKey}`, subVal);
+        });
+      }
+    });
+    root.style.setProperty('--font-heading', theme.fonts.heading);
+    root.style.setProperty('--font-body', theme.fonts.body);
 
-  // DOM updates
-  window.addEventListener('DOMContentLoaded', () => {
-    const logo = document.querySelector('.logo');
-    if (logo) logo.textContent = config.site.headerTitle;
+    window.addEventListener('DOMContentLoaded', () => {
+      // Logo and nav injection
+      const logo = document.querySelector('.logo');
+      if (logo) logo.textContent = config.site.headerTitle;
 
-    const menuTarget = document.getElementById('global-menu');
-    if (menuTarget) menuTarget.innerHTML = config.menu.html;
+      const menuTarget = document.getElementById('global-menu');
+      if (menuTarget) menuTarget.innerHTML = config.menu.html;
 
-    const heroTitle = document.querySelector('.hero h1');
-    const heroDesc = document.querySelector('.hero p');
-    const heroBtn = document.querySelector('.hero .button');
+      // Hero section override
+      const heroTitle = document.querySelector('.hero h1');
+      const heroDesc = document.querySelector('.hero p');
+      const heroBtn = document.querySelector('.hero .button');
 
-    if (heroTitle) heroTitle.textContent = "Sporebot Farming System";
-    if (heroDesc) heroDesc.textContent = "Grow your mushroom farm, earn SPORES, brew potions, and explore Web3 — all from Discord.";
-    if (heroBtn) {
-      heroBtn.textContent = 'Start Farming';
-      heroBtn.href = config.discord.inviteURL;
-      heroBtn.target = '_blank';
-      heroBtn.rel = 'noopener noreferrer';
-    }
+      if (heroTitle) heroTitle.textContent = "Sporebot Farming System";
+      if (heroDesc) heroDesc.textContent = "Grow your mushroom farm, earn SPORES, brew potions, and explore Web3 — all from Discord.";
+      if (heroBtn) {
+        heroBtn.textContent = "Start Farming";
+        heroBtn.href = config.discord.inviteURL;
+        heroBtn.target = "_blank";
+        heroBtn.rel = "noopener noreferrer";
+      }
 
-    // ✅ Optional: override hero background for this page
-    const heroSection = document.querySelector('.hero');
-    if (heroSection) {
-      heroSection.style.backgroundImage = "url('/images/mp.png')";
-    }
-  });
-</script>
-
+      const heroSection = document.querySelector('.hero');
+      if (heroSection) {
+        heroSection.style.backgroundImage = "url('/images/mp.png')";
+      }
+    });
+  </script>
 </head>
 
 <body>
@@ -83,8 +81,8 @@
     <nav class="container">
       <a href="index.html" class="logo"></a>
       <ul class="nav-links">
-        <li><a href="https://www.reddit.com/r/MushroomPlanet/" target="_blank" rel="noopener noreferrer">Reddit</a></li>
-        <li><a href="https://discord.com/invite/RgUh9kHx86" target="_blank" rel="noopener noreferrer">Discord</a></li>
+        <li><a href="https://www.reddit.com/r/MushroomPlanet/" target="_blank" rel="noopener noreferrer">REDDIT</a></li>
+        <li><a href="https://discord.com/invite/RgUh9kHx86" target="_blank" rel="noopener noreferrer">DISCORD</a></li>
       </ul>
     </nav>
   </header>
@@ -102,7 +100,8 @@
   </section>
 
   <!-- Features -->
-  <section id="features" class="container features">
+<section id="features" class="features section-dark">
+  <div class="container">
     <h2>🌟 Features</h2>
     <div class="feature-grid">
       <div class="card">
@@ -145,7 +144,7 @@
   </section>
 
   <!-- FAQ -->
-<section id="faq" class="faq" style="background-color: #ffffe1; color: white; padding: 4rem 0;">
+<section id="faq" class="faq section-light">
   <div class="container">
     <h2>📘 Frequently Asked Questions</h2>
     <p style="text-align: center; max-width: 700px; margin: 0 auto 2rem; color: #444; font-size: 1.1rem;">
@@ -155,7 +154,6 @@
     <div class="faq-toggle-buttons" style="text-align: center; margin-bottom: 2rem;">
     <button class="faq-toggle active" data-target="sporebot">Sporebot Q&A</button>
     <button class="faq-toggle" data-target="verification">Verification Q&A</button>
-    <button class="faq-toggle" data-target="planet">Mushroom Planet FAQ</button> 
     </div>
 
     <div id="faq-planet" class="accordion-section" style="display: none;">
@@ -318,7 +316,7 @@
 </section>
 
 <!-- Web3 Section -->
-<section id="web3" class="web3-info">
+<section id="web3" class="web3-info section-dark">
   <div class="container">
     <h2>🌐 Sporebot, Web3 & the Blockchain</h2>
     <p class="intro">

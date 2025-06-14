@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Token Overview | Mushroom Planet</title>
+  <link id="font-link" rel="stylesheet" href="" />
+  <link rel="stylesheet" href="styles.css" />
+  <script type="module" src="config.js"></script>
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <a href="index.html" class="logo">Mushroom Planet</a>
+      <ul class="nav-links">
+        <li><a href="https://www.reddit.com/r/MushroomPlanet/" target="_blank" rel="noopener noreferrer">REDDIT</a></li>
+        <li><a href="https://discord.com/invite/RgUh9kHx86" target="_blank" rel="noopener noreferrer">DISCORD</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div id="global-menu"></div>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="container">
+    <h1 style="display: flex; justify-content: center; align-items: center; gap: 1rem; flex-wrap: wrap; font-size: 2.25rem;">
+      <img src="/images/shroom.png" alt="$HROOM" style="height: 1.5em; width: 1.5em; vertical-align: middle;" />
+      Mooshie NFT Rewards
+      <img src="/images/spore.png" alt="$SPORE" style="height: 1.5em; width: 1.5em; vertical-align: middle;" />
+    </h1>
+    <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto 2rem;">
+      Earn real rewards by owning NFTs or by providing to the Liquidity Pool. View the current and upcoming rewards schedule to take place.
+    </p>
+
+  </div>
+</section>
+
+<!-- Guide Toggle Buttons -->
+<section class="section-light" style="padding: 3rem 0; width: 100%; text-align: center;">
+  <h2>📚 Explore Our Guides</h2>
+  <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
+    <button onclick="showGuide('sporebot')" class="button" style="background: var(--clr-primary); color: var(--clr-dark); border: 2px solid var(--clr-secondary); display: flex; align-items: center; gap: 0.5rem;">
+      <img src="/images/sporebot.png" alt="Sporebot" style="height: 1.5em; width: 1.5em;" />
+      Sporebot Guide
+    </button>
+    <button onclick="showGuide('lp')" class="button" style="background: var(--clr-primary); color: var(--clr-dark); border: 2px solid var(--clr-secondary); display: flex; align-items: center; gap: 0.5rem;">
+      <img src="/images/coin.png" alt="LP" style="height: 1.5em; width: 1.5em;" />
+      LP Guide
+    </button>
+    <button onclick="showGuide('discord')" class="button" style="background: var(--clr-primary); color: var(--clr-dark); border: 2px solid var(--clr-secondary); display: flex; align-items: center; gap: 0.5rem;">
+      <img src="/images/discord.png" alt="Discord" style="height: 1.5em; width: 1.5em;" />
+      Discord Guide
+    </button>
+  </div>
+</section>
+
+<!-- Sporebot Guide -->
+<section id="guide-sporebot" class="section-light" style="display: none; padding: 4rem 0;">
+  <div class="container">
+    <h2>🌱 Sporebot Guide</h2>
+    <p>This guide walks you through farming, planting, harvesting, and earning SPORES in Discord.</p>
+    <!-- Add actual guide content here -->
+  </div>
+</section>
+
+<!-- LP Guide -->
+<section id="guide-lp" class="section-light" style="display: none; padding: 4rem 0;">
+  <div class="container">
+    <h2>💧 LP Guide</h2>
+    <p>Learn how to provide liquidity using QuickSwap and earn yield while supporting the SHROOM/SPORE ecosystem.</p>
+    <!-- Add actual guide content here -->
+  </div>
+</section>
+
+<!-- Discord Guide -->
+<section id="guide-discord" class="section-light" style="display: none; padding: 4rem 0;">
+  <div class="container">
+    <h2>🎧 Discord Guide</h2>
+    <p>How to get verified, use bot commands, level up, and interact with the Mushroom Planet community.</p>
+    <!-- Add actual guide content here -->
+  </div>
+</section>
+
+<!-- Toggle Script -->
+<script>
+  function showGuide(id) {
+    const guides = {
+      sporebot: document.getElementById('guide-sporebot'),
+      lp: document.getElementById('guide-lp'),
+      discord: document.getElementById('guide-discord')
+    };
+
+    // Hide all first
+    Object.values(guides).forEach(guide => guide.style.display = 'none');
+
+    // Show selected
+    if (guides[id]) guides[id].style.display = 'block';
+  }
+</script>
+
+
+
+<footer style="background-color: #1a1a1a; color: #ffffe1; padding: 2rem 0; text-align: center;">
+  <div class="container">
+    &copy; 2025 Mushroom Planet. All rights reserved.
+  </div>
+</footer>
+
+<script type="module">
+  import config from './config.js';
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const menuTarget = document.getElementById('global-menu');
+    if (menuTarget) menuTarget.innerHTML = config.menu.html;
+  });
+</script>

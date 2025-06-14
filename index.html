@@ -32,13 +32,13 @@
 
     const root = document.documentElement;
     Object.entries(theme.colors).forEach(([key, val]) => {
-      if (typeof val === 'string') {
-        root.style.setProperty(`--clr-${key}`, val);
-      } else {
+    if (typeof val === 'string') {
+        root.style.setProperty(`--clr-${key}`, val); // ⛔ this affects --clr-accent, --clr-light, etc.
+    } else {
         Object.entries(val).forEach(([subKey, subVal]) => {
-          root.style.setProperty(`--clr-${key}-${subKey}`, subVal);
+        root.style.setProperty(`--clr-${key}-${subKey}`, subVal);
         });
-      }
+    }
     });
     root.style.setProperty('--font-heading', theme.fonts.heading);
     root.style.setProperty('--font-body', theme.fonts.body);
@@ -70,8 +70,8 @@
     <nav class="container">
       <a href="index.html" class="logo"></a>
       <ul class="nav-links">
-        <li><a href="https://www.reddit.com/r/MushroomPlanet/" target="_blank" rel="noopener noreferrer">Reddit</a></li>
-        <li><a href="https://discord.com/invite/RgUh9kHx86" target="_blank" rel="noopener noreferrer">Discord</a></li>
+        <li><a href="https://www.reddit.com/r/MushroomPlanet/" target="_blank" rel="noopener noreferrer">REDDIT</a></li>
+        <li><a href="https://discord.com/invite/RgUh9kHx86" target="_blank" rel="noopener noreferrer">DISCORD</a></li>
       </ul>
     </nav>
   </header>
@@ -87,76 +87,120 @@
   </div>
 </section>
 
-  <!-- Section 2: Buy / Earn / Trade -->
-  <section class="features alt section-dark">
-    <div class="container">
-      <h2>🚀 Getting Started</h2>
-      <div class="feature-grid">
-        <div class="card">
-          <h3>🧒 Buy Kid Shroom or Gold Mooshie</h3>
-          <p>Get your first Mushroom Planet NFT by purchasing a <strong>Kid Shroom</strong> or <strong>Gold Mooshie</strong> on Polygon.</p>
-        </div>
-        <div class="card">
-          <h3>💸 Earn Rewards</h3>
-          <p>Farm with Sporebot, post on Reddit, or climb streaks to earn <strong>SHROOMS</strong> and <strong>SPORES</strong>.</p>
-        </div>
-        <div class="card">
-          <h3>🌐 Buy SHROOM or SPORE</h3>
-          <p>Trade on QuickSwap using WETH to load up on tokens for farming, brewing, or tipping.</p>
+<!-- Section 2: Buy / Earn / Trade -->
+<section class="features alt section-dark">
+  <div class="container">
+    <h2>
+      <img src="/images/explore.png" alt="Explore Icon" style="height: 1.3em; width: 1.3em; vertical-align: -0.2em; margin-right: 0.4em; border: none;" />
+      Explore the Mooshie Ecosystem
+    </h2>
+
+    <p style="max-width: 800px; margin: 0 auto 2rem; text-align: center; font-size: 1.05rem; line-height: 1.6;">
+    The Shroom ($HROOM) & Spore (SPR) tokens are the twin currencies of the MushroomPlanet ecosystem, designed to reward creativity, loyalty, and community participation across both 
+    <a href="https://www.reddit.com/r/MushroomPlanet" target="_blank" rel="noopener noreferrer" style="color: #00b0f4;">r/MushroomPlanet</a> 
+    and 
+    <a href="https://discord.com/invite/RgUh9kHx86" target="_blank" rel="noopener noreferrer" style="color: #00b0f4;">Discord</a>.
+    <br /><br />
+    Both tokens run on the Polygon network, enabling low fees, fast transactions, and secure, on-chain utility. Earn real rewards by posting mushroom content on Reddit, farming in Discord, tipping other Shroomies, or just vibing with the community. 
+    </p>
+
+    <div class="feature-grid">
+
+      <!-- Kid Shroom Card -->
+      <div class="card">
+        <img src="/images/kidshroom.png" alt="Kid Shroom Icon" style="height: 3em; width: 3em; margin-bottom: 0.5rem; border: none;" />
+        <h3>Mooshie NFTs</h3>
+        <p>Get your first Mooshie NFT by purchasing a <strong>Kid Shroom</strong> or <strong>Gold Mooshie</strong> on Reddit! All Kid Shroom holders earn monthly rewards!</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1rem;">
+          <a class="button" href="nft.html">Learn More</a>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Section 3: Lore -->
-  <section class="about section-light">
-    <div class="container">
-      <h2>📖 Mushroom Planet Lore</h2>
-      <p class="intro">
-        Long ago, in the fertile shadows of the Mooncap Valley, a spore drifted from the stars and rooted itself into a glowing grove. 
-        From that sprout emerged the first SHROOM — sentient, curious, and ready to build.
-      </p>
-      <p>
-        As more spores fell and the forest bloomed, tribes of Mooshies formed villages, carved scrolls, and began trading essence and dreams. 
-        Some wandered into the enchanted woods, discovering lost relics and alchemical herbs.
-      </p>
-      <p>
-        Today, Mushroom Planet thrives as a living realm — powered by Discord, governed by tokens, and grown by its most dedicated farmers.
-      </p>
-    </div>
-  </section>
-
-  <!-- Section 4: More Info Cards -->
-  <section class="features alt section-dark ">
-    <div class="container">
-      <h2>🌐 Explore the Ecosystem</h2>
-      <div class="feature-grid">
-        <div class="card">
-          <h3>📚 Education</h3>
-          <p>Visit our guides and tutorials to understand SHROOM farming, potion brewing, and NFT strategy.</p>
-        </div>
-        <div class="card">
-          <h3>🎁 Current Rewards</h3>
-          <p>Track what’s live: Golden Chests, daily airdrops, leaderboard payouts, and Reddit tipping boosts.</p>
-        </div>
-        <div class="card">
-          <h3>🎶 Mushroom Music</h3>
-          <p>Listen to enchanted lo-fi mushroomcore, curated by the Mooshie composers of Sporestream Radio.</p>
+      <!-- Sporebot Farming Card -->
+      <div class="card">
+        <img src="/images/sporebot.png" alt="Sporebot Icon" style="height: 3em; width: 3em; margin-bottom: 0.5rem; border: none;" />
+        <h3>Sporebot Farming</h3>
+        <p>Start your farm with Sporebot in our Discord Server or !forage daily on Reddit to maximize your SHROOM & SPORE rewards.</p>
+        <div style="display: flex; justify-content: center; margin-top: 1rem;">
+          <a class="button" href="rewards.html">Learn More</a>
         </div>
       </div>
-    </div>
-  </section>
 
-  <section id="faq" class="faq section-light">
+      <!-- Rewards Card -->
+      <div class="card">
+        <img src="/images/coin.png" alt="Coin Icon" style="height: 3em; width: 3em; margin-bottom: 0.5rem; border: none;" />
+        <h3>Current Rewards</h3>
+        <p>Daily NFT payouts, weekly LP drops, and monthly rewards — view what’s active now in Mushroom Planet!</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1rem;">
+          <a class="button" href="rewards.html">Learn More</a>
+        </div>
+      </div>
+
+            <!-- SHROOM Trade Card -->
+      <div class="card">
+        <img src="/images/shroom.png" alt="SHROOM Icon" style="height: 3em; width: 3em; margin-bottom: 0.5rem; border: none; outline: none; box-shadow: none;" />
+        <h3>Trade Tokens</h3>
+        <p>Connect your wallet (MetaMask, Coinbase, TrustWallet, etc.) and trade <strong>SHROOMS</strong> & <strong>SPORES</strong> on QuickSwap using <strong>WETH</strong>.</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1rem;">
+          <a class="button" href="token.html">Learn More</a>
+        </div>
+      </div>
+
+      <!-- SPORE Token Info Card -->
+      <div class="card">
+        <img src="/images/spore.png" alt="SPORE Icon" style="height: 3em; width: 3em; margin-bottom: 0.5rem; border: none; outline: none; box-shadow: none;" />
+        <h3>View Price</h3>
+        <p>See the live token price of both SHROOMS & SPORES. View the Marketcap, Token Contract, and other details in real time.</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1rem;">
+          <a class="button" href="token.html">Learn More</a>
+        </div>
+      </div>
+
+      <!-- Real Mushroom Guide Card -->
+      <div class="card">
+        <img src="/images/guide.png" alt="Guide Icon" style="height: 3em; width: 3em; margin-bottom: 0.5rem; border: none;" />
+        <h3>Web3 Guides</h3>
+        <p>Learn about real-world mushrooms, how to identify species, understand spore patterns, and explore fun fungi facts in nature.</p>
+        <div style="display: flex; justify-content: center; margin-top: 1rem;">
+          <a class="button" href="Guide.html">Learn More</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Section 3: Lore -->
+<section class="about section-light">
+  <div class="container">
+    <h2>
+      <img src="/images/king.png" alt="👑" style="height: 1.5em; width: 1.5em; vertical-align: -0.2em; margin-right: 0.4em; border: 3px solid #facc15; border-radius: 9999px;" />
+      Mushroom Planet Lore
+      <img src="/images/queen.png" alt="👑" style="height: 1.5em; width: 1.5em; vertical-align: -0.2em; margin-left: 0.4em; border: 3px solid #facc15; border-radius: 9999px;" />
+    </h2>
+
+    <p class="intro">
+      Long ago, in the fertile shadows of the Mooncap Valley, a spore drifted from the stars and rooted itself into a glowing grove. 
+      From that sprout emerged the first SHROOM — sentient, curious, and ready to build.
+    </p>
+    <p>
+      As more spores fell and the forest bloomed, tribes of Mooshies formed villages, carved scrolls, and began trading essence and dreams. 
+      Some wandered into the enchanted woods, discovering lost relics and alchemical herbs.
+    </p>
+    <p>
+      Today, Mushroom Planet thrives as a living realm — powered by Discord, governed by tokens, and grown by its most dedicated farmers.
+    </p>
+  </div>
+</section>
+
+<!-- Section 4: FAQ -->
+
+  <section id="faq" class="faq section-dark">
     <div class="container">
       <h2>📘 Frequently Asked Questions</h2>
-        <p class="faq-intro">
+        <p>
         Below you’ll find answers to the most commonly asked questions...
         </p>
-
-      <div class="faq-toggle-buttons" style="text-align: center; margin-bottom: 2rem;">
-        <button class="faq-toggle active" data-target="planet">Mushroom Planet FAQ</button>
-      </div>
 
       <!-- Mushroom Planet Q&A Accordion -->
       <div id="faq-planet" class="accordion-section">
@@ -180,10 +224,11 @@
 <section class="team section-dark">
   <div class="container">
     <h2>🌟 Meet the Team</h2>
-    <div class="team-grid">
+    <div class="grid-3">
+      <div class="card" style="visibility: hidden;"></div>
 
       <!-- ZukoBih -->
-      <div class="team-card">
+      <div class="card">
         <a href="https://www.reddit.com/user/ZukoBih" target="_blank" rel="noopener noreferrer">
           <img id="zukobih-avatar" src="https://www.redditstatic.com/avatars/avatar_default_01_FF4500.png" alt="u/ZukoBih" />
         </a>
@@ -191,55 +236,74 @@
         <p>Founder & Mooshie Artist</p>
       </div>
 
-      <!-- IveDoneItAtLast -->
-      <div class="team-card">
-        <a href="https://www.reddit.com/user/IveDoneItAtLast" target="_blank" rel="noopener noreferrer">
-          <img id="ivedoneit-avatar" src="https://www.redditstatic.com/avatars/avatar_default_03_DB0064.png" alt="u/IveDoneItAtLast" />
-        </a>
-        <h3>u/IveDoneItAtLast</h3>
-        <p>Testing & QA</p>
-      </div>
-
-      <!-- Mrmakanakai -->
-      <div class="team-card">
-        <a href="https://www.reddit.com/user/Mrmakanakai" target="_blank" rel="noopener noreferrer">
-          <img id="mrmakanakai-avatar" src="https://www.redditstatic.com/avatars/avatar_default_05_5A00E0.png" alt="u/Mrmakanakai" />
-        </a>
-        <h3>u/Mrmakanakai</h3>
-        <p>Creative Copywriter</p>
-      </div>
-
-      <!-- PermanentNight_ -->
-      <div class="team-card">
-        <a href="https://www.reddit.com/user/PermanentNight_" target="_blank" rel="noopener noreferrer">
-          <img id="permanentnight-avatar" src="https://www.redditstatic.com/avatars/avatar_default_02_46D160.png" alt="u/PermanentNight_" />
-        </a>
-        <h3>u/PermanentNight_</h3>
-        <p>Community Support</p>
-      </div>
-
-      <!-- -Anasthesia- -->
-      <div class="team-card">
-        <a href="https://www.reddit.com/user/-Anasthesia-" target="_blank" rel="noopener noreferrer">
-          <img id="anasthesia-avatar" src="https://www.redditstatic.com/avatars/avatar_default_04_A5A4A4.png" alt="u/-Anasthesia-" />
-        </a>
-        <h3>u/-Anasthesia-</h3>
-        <p>Design & Accessibility</p>
-      </div>
-
-      <!-- GUW00 -->
-      <div class="team-card">
-        <a href="https://www.reddit.com/user/GUW00" target="_blank" rel="noopener noreferrer">
-          <img id="guw00-avatar" src="https://www.redditstatic.com/avatars/avatar_default_02_46D160.png" alt="u/GUW00" />
-        </a>
-        <h3>u/GUW00</h3>
-        <p>Strategy & Visual Design</p>
-      </div>
+      <!-- Invisible placeholders to force 1/3 width -->
+      <div class="card" style="visibility: hidden;"></div>
 
     </div>
   </div>
 </section>
 
+<section class="team section-dark">
+  <div class="container">
+    <div class="grid-3">
+
+      <!-- IveDoneItAtLast -->
+      <div class="card">
+        <a href="https://www.reddit.com/user/IveDoneItAtLast" target="_blank" rel="noopener noreferrer">
+          <img id="ivedoneit-avatar" src="https://www.redditstatic.com/avatars/avatar_default_03_DB0064.png" alt="u/IveDoneItAtLast" />
+        </a>
+        <h3>u/IveDoneItAtLast</h3>
+        <p>Security & Guardian</p>
+      </div>
+
+      <!-- Mrmakanakai -->
+      <div class="card">
+        <a href="https://www.reddit.com/user/Mrmakanakai" target="_blank" rel="noopener noreferrer">
+          <img id="mrmakanakai-avatar" src="https://www.redditstatic.com/avatars/avatar_default_05_5A00E0.png" alt="u/Mrmakanakai" />
+        </a>
+        <h3>u/Mrmakanakai</h3>
+        <p>Creative Writer & Guardian</p>
+      </div>
+
+      <!-- PermanentNight_ -->
+      <div class="card">
+        <a href="https://www.reddit.com/user/PermanentNight_" target="_blank" rel="noopener noreferrer">
+          <img id="permanentnight-avatar" src="https://www.redditstatic.com/avatars/avatar_default_02_46D160.png" alt="u/PermanentNight_" />
+        </a>
+        <h3>u/PermanentNight_</h3>
+        <p>Web3 Engineer & Dev</p>
+      </div>
+
+      <!-- -Anasthesia- -->
+      <div class="card">
+        <a href="https://www.reddit.com/user/-Anasthesia-" target="_blank" rel="noopener noreferrer">
+          <img id="anasthesia-avatar" src="https://www.redditstatic.com/avatars/avatar_default_04_A5A4A4.png" alt="u/-Anasthesia-" />
+        </a>
+        <h3>u/-Anasthesia-</h3>
+        <p>Smart Contract Architect</p>
+      </div>
+
+      <!-- GUW00 -->
+      <div class="card">
+        <a href="https://www.reddit.com/user/GUW00" target="_blank" rel="noopener noreferrer">
+          <img id="guw00-avatar" src="https://www.redditstatic.com/avatars/avatar_default_02_46D160.png" alt="u/GUW00" />
+        </a>
+        <h3>u/GUW00</h3>
+        <p>Web3 & Sporebot Dev</p>
+      </div>
+
+      <!-- boomerangthrowaway -->
+      <div class="card">
+        <a href="https://www.reddit.com/user/boomerangthrowaway" target="_blank" rel="noopener noreferrer">
+          <img id="boomerangthrowaway-avatar" src="https://www.redditstatic.com/avatars/avatar_default_02_46D160.png" alt="u/boomerangthrowaway" />
+        </a>
+        <h3>u/boomerangthrowaway</h3>
+        <p>Community Builder & Connector</p>
+      </div>
+
+    </div>
+  </div>
+</section>
 
   <footer>
     <div class="container">
@@ -265,6 +329,7 @@
   loadRedditAvatar('PermanentNight_', 'permanentnight-avatar');
   loadRedditAvatar('-Anasthesia-', 'anasthesia-avatar');
   loadRedditAvatar('GUW00', 'guw00-avatar');
+  loadRedditAvatar('boomerangthrowaway', 'boomerangthrowaway-avatar');
 </script>
 
   <script>
