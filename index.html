@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title></title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="" />
+  <meta property="og:description" content="" />
+  <meta property="og:image" content="" />
+  <meta property="og:url" content="" />
+
+  <link id="font-link" rel="stylesheet" href="" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <script type="module" src="config.js"></script>
+  <script type="module">
+    import config from './config.js';
+
+    const theme = config.theme;
+
+    document.title = config.site.title;
+    document.querySelector('meta[name="description"]').content = config.site.description;
+    document.querySelector('meta[property="og:title"]').content = config.metadata.socialCard.title;
+    document.querySelector('meta[property="og:description"]').content = config.metadata.socialCard.description;
+    document.querySelector('meta[property="og:image"]').content = config.metadata.socialCard.image;
+    document.querySelector('meta[property="og:url"]').content = config.site.url;
+
+    const fontParam = config.metadata.googleFonts.join('&family=');
+    document.getElementById('font-link').href = `https://fonts.googleapis.com/css2?family=${fontParam}&display=swap`;
+
+    const root = document.documentElement;
+    Object.entries(theme.colors).forEach(([key, val]) => {
+      if (typeof val === 'string') {
+        root.style.setProperty(`--clr-${key}`, val);
+      } else {
+        Object.entries(val).forEach(([subKey, subVal]) => {
+          root.style.setProperty(`--clr-${key}-${subKey}`, subVal);
+        });
+      }
+    });
+    root.style.setProperty('--font-heading', theme.fonts.heading);
+    root.style.setProperty('--font-body', theme.fonts.body);
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const logo = document.querySelector('.logo');
+      if (logo) logo.textContent = config.site.headerTitle;
+
+      const menuTarget = document.getElementById('global-menu');
+      if (menuTarget) menuTarget.innerHTML = config.menu.html;
+
+      const heroTitle = document.querySelector('.hero h1');
+      const heroDesc = document.querySelector('.hero p');
+      const heroBtn = document.querySelector('.hero .button');
+      if (heroTitle) heroTitle.textContent = config.site.title;
+      if (heroDesc) heroDesc.textContent = config.site.description;
+      if (heroBtn) {
+        heroBtn.textContent = 'Join Discord';
+        heroBtn.href = config.discord.inviteURL;
+        heroBtn.target = '_blank';
+        heroBtn.rel = 'noopener noreferrer';
+      }
+    });
+  </script>
+</head>
+
+<body>
+  <header>
+    <nav class="container">
+      <a href="index.html" class="logo"></a>
+      <ul class="nav-links">
+        <li><a href="https://www.reddit.com/r/MushroomPlanet/" target="_blank" rel="noopener noreferrer">Reddit</a></li>
+        <li><a href="https://discord.com/invite/RgUh9kHx86" target="_blank" rel="noopener noreferrer">Discord</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div id="global-menu"></div>
+
+<section class="hero">
+  <div class="container">
+    <h1></h1>
+    <p></p>
+    <a class="button" id="discord-button"></a>
+    <a class="button" id="reddit-button" href="https://www.reddit.com/r/MushroomPlanet/" target="_blank" rel="noopener noreferrer">Join Reddit</a>
+  </div>
+</section>
+
+  <!-- Section 2: Buy / Earn / Trade -->
+  <section class="features alt section-dark">
+    <div class="container">
+      <h2>🚀 Getting Started</h2>
+      <div class="feature-grid">
+        <div class="card">
+          <h3>🧒 Buy Kid Shroom or Gold Mooshie</h3>
+          <p>Get your first Mushroom Planet NFT by purchasing a <strong>Kid Shroom</strong> or <strong>Gold Mooshie</strong> on Polygon.</p>
+        </div>
+        <div class="card">
+          <h3>💸 Earn Rewards</h3>
+          <p>Farm with Sporebot, post on Reddit, or climb streaks to earn <strong>SHROOMS</strong> and <strong>SPORES</strong>.</p>
+        </div>
+        <div class="card">
+          <h3>🌐 Buy SHROOM or SPORE</h3>
+          <p>Trade on QuickSwap using WETH to load up on tokens for farming, brewing, or tipping.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Lore -->
+  <section class="about section-light">
+    <div class="container">
+      <h2>📖 Mushroom Planet Lore</h2>
+      <p class="intro">
+        Long ago, in the fertile shadows of the Mooncap Valley, a spore drifted from the stars and rooted itself into a glowing grove. 
+        From that sprout emerged the first SHROOM — sentient, curious, and ready to build.
+      </p>
+      <p>
+        As more spores fell and the forest bloomed, tribes of Mooshies formed villages, carved scrolls, and began trading essence and dreams. 
+        Some wandered into the enchanted woods, discovering lost relics and alchemical herbs.
+      </p>
+      <p>
+        Today, Mushroom Planet thrives as a living realm — powered by Discord, governed by tokens, and grown by its most dedicated farmers.
+      </p>
+    </div>
+  </section>
+
+  <!-- Section 4: More Info Cards -->
+  <section class="features alt section-dark ">
+    <div class="container">
+      <h2>🌐 Explore the Ecosystem</h2>
+      <div class="feature-grid">
+        <div class="card">
+          <h3>📚 Education</h3>
+          <p>Visit our guides and tutorials to understand SHROOM farming, potion brewing, and NFT strategy.</p>
+        </div>
+        <div class="card">
+          <h3>🎁 Current Rewards</h3>
+          <p>Track what’s live: Golden Chests, daily airdrops, leaderboard payouts, and Reddit tipping boosts.</p>
+        </div>
+        <div class="card">
+          <h3>🎶 Mushroom Music</h3>
+          <p>Listen to enchanted lo-fi mushroomcore, curated by the Mooshie composers of Sporestream Radio.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="faq section-light">
+    <div class="container">
+      <h2>📘 Frequently Asked Questions</h2>
+        <p class="faq-intro">
+        Below you’ll find answers to the most commonly asked questions...
+        </p>
+
+      <div class="faq-toggle-buttons" style="text-align: center; margin-bottom: 2rem;">
+        <button class="faq-toggle active" data-target="planet">Mushroom Planet FAQ</button>
+      </div>
+
+      <!-- Mushroom Planet Q&A Accordion -->
+      <div id="faq-planet" class="accordion-section">
+        <div class="accordion">
+          <div class="accordion-item"><button>🌍 What is Mushroom Planet?</button><div class="accordion-content"><p>Mushroom Planet is the official home of everything $HROOM: NFTs, lore, farming, art, and more.</p></div></div>
+          <div class="accordion-item"><button>🛒 How do I buy SHROOMS and SPORES?</button><div class="accordion-content"><p>Buy SHROOMS or SPORES on QuickSwap using WETH. Always verify contract addresses.</p></div></div>
+          <div class="accordion-item"><button>🍄 What is the $HROOM Token?</button><div class="accordion-content"><p>$HROOM is the main utility token in the Mushroom Planet ecosystem.</p></div></div>
+          <div class="accordion-item"><button>📜 What are the $HROOM Token Details?</button><div class="accordion-content"><p>Total Supply: 6.874B • Symbol: $HROOM • Decimals: 18 • View on Polygonscan</p></div></div>
+          <div class="accordion-item"><button>📈 Where can I see the price of $HROOM?</button><div class="accordion-content"><p>View prices on DEXTools, GeckoTerminal, or RCCMarketcap.</p></div></div>
+          <div class="accordion-item"><button>🌀 What is the SPORE Token?</button><div class="accordion-content"><p>SPORE is a dual-token used for governance and upgrades. Earn it by farming and holding $HROOM/NFTs.</p></div></div>
+          <div class="accordion-item"><button>📜 What are the SPORE Token Details?</button><div class="accordion-content"><p>Total Supply: 687.4B • Symbol: SPR • Decimals: 18 • View on Polygonscan</p></div></div>
+          <div class="accordion-item"><button>📦 What was the initial $SPORE token allocation?</button><div class="accordion-content"><p>10% Airdrop • 25% Liquidity • 10% LP Rewards • 55% Reserve</p></div></div>
+          <div class="accordion-item"><button>💰 How do I earn $HROOMS?</button><div class="accordion-content"><p>Post on Reddit, farm with Sporebot, or receive tips in community channels.</p></div></div>
+          <div class="accordion-item"><button>📨 How do I tip on Reddit?</button><div class="accordion-content"><p>Tipping is powered by r/CommunityCurrency using bot commands or replies. See the tipping guide for details.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Section 6: Meet the Team -->
+<section class="team section-dark">
+  <div class="container">
+    <h2>🌟 Meet the Team</h2>
+    <div class="team-grid">
+
+      <!-- ZukoBih -->
+      <div class="team-card">
+        <a href="https://www.reddit.com/user/ZukoBih" target="_blank" rel="noopener noreferrer">
+          <img id="zukobih-avatar" src="https://www.redditstatic.com/avatars/avatar_default_01_FF4500.png" alt="u/ZukoBih" />
+        </a>
+        <h3>u/ZukoBih</h3>
+        <p>Founder & Mooshie Artist</p>
+      </div>
+
+      <!-- IveDoneItAtLast -->
+      <div class="team-card">
+        <a href="https://www.reddit.com/user/IveDoneItAtLast" target="_blank" rel="noopener noreferrer">
+          <img id="ivedoneit-avatar" src="https://www.redditstatic.com/avatars/avatar_default_03_DB0064.png" alt="u/IveDoneItAtLast" />
+        </a>
+        <h3>u/IveDoneItAtLast</h3>
+        <p>Testing & QA</p>
+      </div>
+
+      <!-- Mrmakanakai -->
+      <div class="team-card">
+        <a href="https://www.reddit.com/user/Mrmakanakai" target="_blank" rel="noopener noreferrer">
+          <img id="mrmakanakai-avatar" src="https://www.redditstatic.com/avatars/avatar_default_05_5A00E0.png" alt="u/Mrmakanakai" />
+        </a>
+        <h3>u/Mrmakanakai</h3>
+        <p>Creative Copywriter</p>
+      </div>
+
+      <!-- PermanentNight_ -->
+      <div class="team-card">
+        <a href="https://www.reddit.com/user/PermanentNight_" target="_blank" rel="noopener noreferrer">
+          <img id="permanentnight-avatar" src="https://www.redditstatic.com/avatars/avatar_default_02_46D160.png" alt="u/PermanentNight_" />
+        </a>
+        <h3>u/PermanentNight_</h3>
+        <p>Community Support</p>
+      </div>
+
+      <!-- -Anasthesia- -->
+      <div class="team-card">
+        <a href="https://www.reddit.com/user/-Anasthesia-" target="_blank" rel="noopener noreferrer">
+          <img id="anasthesia-avatar" src="https://www.redditstatic.com/avatars/avatar_default_04_A5A4A4.png" alt="u/-Anasthesia-" />
+        </a>
+        <h3>u/-Anasthesia-</h3>
+        <p>Design & Accessibility</p>
+      </div>
+
+      <!-- GUW00 -->
+      <div class="team-card">
+        <a href="https://www.reddit.com/user/GUW00" target="_blank" rel="noopener noreferrer">
+          <img id="guw00-avatar" src="https://www.redditstatic.com/avatars/avatar_default_02_46D160.png" alt="u/GUW00" />
+        </a>
+        <h3>u/GUW00</h3>
+        <p>Strategy & Visual Design</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+  <footer>
+    <div class="container">
+      &copy; 2025 Mushroom Planet. All rights reserved.
+    </div>
+  </footer>
+
+<script>
+  async function loadRedditAvatar(username, imgId) {
+    try {
+      const res = await fetch(`https://www.reddit.com/user/${username}/about.json`);
+      const data = await res.json();
+      const avatar = data.data.icon_img;
+      document.getElementById(imgId).src = avatar;
+    } catch (err) {
+      console.error(`Failed to load avatar for ${username}:`, err);
+    }
+  }
+
+  loadRedditAvatar('ZukoBih', 'zukobih-avatar');
+  loadRedditAvatar('IveDoneItAtLast', 'ivedoneit-avatar');
+  loadRedditAvatar('Mrmakanakai', 'mrmakanakai-avatar');
+  loadRedditAvatar('PermanentNight_', 'permanentnight-avatar');
+  loadRedditAvatar('-Anasthesia-', 'anasthesia-avatar');
+  loadRedditAvatar('GUW00', 'guw00-avatar');
+</script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggles = document.querySelectorAll('.faq-toggle');
+      const sections = {
+        planet: document.getElementById('faq-planet')
+      };
+
+      let activeSection = 'planet';
+      sections[activeSection].style.display = 'block';
+
+      toggles.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const target = btn.dataset.target;
+
+          if (activeSection === target) {
+            sections[target].style.display = 'none';
+            btn.classList.remove('active');
+            activeSection = null;
+          } else {
+            Object.entries(sections).forEach(([_, sec]) => sec.style.display = 'none');
+            toggles.forEach(b => b.classList.remove('active'));
+
+            sections[target].style.display = 'block';
+            btn.classList.add('active');
+            activeSection = target;
+
+            btn.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+
+      document.querySelectorAll('.accordion-item button').forEach(button => {
+        button.addEventListener('click', () => {
+          const item = button.parentElement;
+          const isOpen = item.classList.contains('open');
+          item.parentElement.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('open'));
+          if (!isOpen) item.classList.add('open');
+        });
+      });
+    });
+  </script>
+</body>
+</html>
