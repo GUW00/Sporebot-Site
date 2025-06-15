@@ -200,11 +200,14 @@ body {
 
 /* Header & nav */
 header {
-  position: sticky;
+  position: fixed; /* Keep the header fixed */
   top: 0;
-  background: #fe0000; /* 🔴 Dark background */
-  border-bottom: 1px solid #ff038a;
-  z-index: 10;
+  left: 0;
+  width: 100%;
+  background-color: #fe0000; /* Red background */
+  padding: 1rem;
+  text-align: center;
+  z-index: 999; /* Keeps header on top */
 }
 
 @media (max-width: 600px) {
@@ -295,6 +298,7 @@ nav {
 .button:hover {
   transform: translateY(-2px);
   background: var(--clr-secondary);
+  
 }
 .button.large {
   font-size: 1.25rem;
@@ -344,16 +348,17 @@ nav {
 .accordion-item button {
   width: 100%;
   padding: 1rem;
+  color: var(--clr-sections-altLightText);
   font-size: 1rem;
   font-weight: 600;
-  background: none;
+  background: #ffffe1;
   border: none;
   cursor: pointer;
   text-align: left;
   transition: background var(--transition);
 }
 .accordion-item button:hover {
-  background: var(--clr-secondary); /* Yellow hover */
+  background: #fd464f;
   color: var(--clr-sections-altLightText);
 }
 
@@ -416,7 +421,7 @@ footer {
 }
 .faq-toggle {
   padding: 0.6rem 1.5rem;
-  background: var(--clr-light);
+  background: var(--clr-dark);
   border: 2px solid var(--clr-primary);
   color: var(--clr-primary);
   font-weight: 600;
@@ -426,7 +431,7 @@ footer {
 }
 .faq-toggle:hover {
   background: var(--clr-primary);
-  color: white;
+  color: #333333;
 }
 .faq-toggle.active {
   background: var(--clr-primary);
@@ -437,16 +442,24 @@ section:target {
   scroll-margin-top: 80px; /* offset for sticky header */
 }
 
+
+/* Make the menu fixed below the header */
 .main-menu {
-  text-align: center;
-  background: #ffffe1;
+  position: fixed; /* Fix the menu just below the header */
+  top: 100px; /* Adjust this based on your header's height */
+  left: 0;
+  width: 100%;
+  background-color: #ffffe1; /* Light cream color */
   padding: 1rem 0;
-  border-bottom: 0px solid #ffffe1;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Optional shadow for visual effect */
+  z-index: 1000; /* Keeps the menu above other content */
+  text-align: center;
 }
 
+/* Style for menu links */
 .main-menu a {
   margin: 0 1rem;
-  color: var(--clr-embed-background); /* Or create a `--clr-link` */
+  color: #000;
   text-decoration: none;
   font-weight: 600;
   font-size: 1.05rem;
@@ -454,8 +467,19 @@ section:target {
 }
 
 .main-menu a:hover {
-  color: var(--clr-secondary);
+  color: #fece00; /* Yellow color on hover */
+}
 
+/* Ensure the body content is pushed down below the fixed menu */
+body {
+  padding-top: 160px; /* Add padding to body to avoid hiding content behind fixed header and menu */
+}
+
+/* Optional: for smaller screens, you might need to adjust padding */
+@media (max-width: 600px) {
+  body {
+    padding-top: 180px; /* Adjust for smaller screen sizes */
+  }
 }
 
 .modal {
@@ -495,4 +519,9 @@ section:target {
   font-size: 28px;
   font-weight: bold;
   cursor: pointer;
+}
+
+/* Specific to guides.html */
+body.guides-page {
+  padding-top: 160px; /* Adjust if necessary */
 }

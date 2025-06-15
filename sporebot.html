@@ -61,6 +61,7 @@
 
       if (heroTitle) heroTitle.textContent = "Sporebot Farming System";
       if (heroDesc) heroDesc.textContent = "Grow your mushroom farm, earn SPORES, brew potions, and explore Web3 — all from Discord.";
+
       if (heroBtn) {
         heroBtn.textContent = "Start Farming";
         heroBtn.href = config.discord.inviteURL;
@@ -71,8 +72,21 @@
       const heroSection = document.querySelector('.hero');
       if (heroSection) {
         heroSection.style.backgroundImage = "url('/images/mp.png')";
+
+        // Add second button dynamically
+        const secondBtn = document.createElement('a');
+        secondBtn.className = 'button';
+        secondBtn.href = 'guides.html'; // Change to 'rewards.html' if needed
+        secondBtn.textContent = 'Sporebot Guide';
+        secondBtn.style.marginLeft = '1rem';
+
+        // Append after the first button
+        if (heroBtn && heroBtn.parentNode) {
+          heroBtn.parentNode.appendChild(secondBtn);
+        }
       }
     });
+
   </script>
 </head>
 
@@ -102,7 +116,7 @@
   <!-- Features -->
 <section id="features" class="features section-dark">
   <div class="container">
-    <h2>🌟 Features</h2>
+    <h2>Sporebot on Discord</h2>
     <div class="feature-grid">
       <div class="card">
         <h3>✅ Getting Started</h3>
@@ -143,17 +157,64 @@
     </div>
   </section>
 
+  <!-- Features -->
+<section id="features" class="features section-light">
+  <div class="container">
+    <h2>Sporebot on Reddit</h2>
+    <div class="feature-grid">
+
+    <div class="card">
+      <h3>💧 Faucet System</h3>
+      <p>New users can use <strong>!faucet</strong> to receive a time bonus of<strong> 1,000 SHROOMS</strong> + <strong>100,000 SPORES</strong>. Your Account must meet the required karma and age.
+    </div>
+
+    <div class="card">
+      <h3>🌱 Daily Forage Threads</h3>
+      <p>Once per day you can <strong>!forage</strong> to earn SHROOMS & SPORES. A new thread is posted daily at <strong>4:20 EST</strong>.
+       Maintain your streak to earn more <strong>SHROOMS</strong> and <strong>SPORES</strong> over time.</p>
+    </div>
+
+    <div class="card">
+      <h3>🍄 Forage Rewards</h3>
+      <p>Each time your <strong>!forage</strong> streak increases so to do your rewards.
+      You can earn a maximum of <strong>1,000 to 6,874 SHROOMS</strong> and up to <strong>687,400 SPORES</strong>.</p>
+    </div>
+
+    <div class="card">
+      <h3>📈 Streak Progression</h3>
+      <p>Longer streaks will earn special flairs. Show your dedication to the Mushroom Planet. Rank up from Bronze Shroomie all the way to Diamond Shroomie!
+    </div>
+
+    <div class="card">
+      <h3>🔗 Wallet Linking & Rewards</h3>
+      <p>From your Reddit account, use <strong>!link 0xYourWallet</strong> to connect your Discord account.
+      Claim <strong>50,000 SHROOMS</strong> + <strong>5,000,000 SPORES</strong> instantly once verified.</p>
+    </div>
+
+    <div class="card">
+      <h3>✨ Praise the Bot!</h3>
+      <p>Reply <strong>“goodbot”</strong> to any Sporebot message to show your appreciation.
+      For every 100 compliments, one will be randomly be selected for a bonus!
+    </div>
+
+    </div>
+  </section>
+
   <!-- FAQ -->
-<section id="faq" class="faq section-light">
+<section id="faq" class="faq section-dark">
   <div class="container">
     <h2>📘 Frequently Asked Questions</h2>
-    <p style="text-align: center; max-width: 700px; margin: 0 auto 2rem; color: #444; font-size: 1.1rem;">
+    <p style="text-align: center; max-width: 700px; margin: 0 auto 2rem; color: #ffffe1; font-size: 1.1rem;">
     Below you’ll find answers to the most commonly asked questions. Click a category below to reveal helpful information and detailed explanations.
     </p>
     
     <div class="faq-toggle-buttons" style="text-align: center; margin-bottom: 2rem;">
     <button class="faq-toggle active" data-target="sporebot">Sporebot Q&A</button>
     <button class="faq-toggle" data-target="verification">Verification Q&A</button>
+    <button class="faq-toggle">
+      <a href="guides.html#sporebot-guide" style="color: inherit; text-decoration: none;">Sporebot Guide</a>
+    </button>
+
     </div>
 
     <div id="faq-planet" class="accordion-section" style="display: none;">
@@ -230,7 +291,7 @@
       </p>
     </div></div>
 
-    <div class="accordion-item"><button>📦 What was the initial $SPORE token allocation?</button><div class="accordion-content">
+    <div class="accordion-item"><button>📦 What was the initial SPORE token allocation?</button><div class="accordion-content">
       <p>
         - 🧑‍🚀 <strong>Avatar Airdrop:</strong> 10%<br>
         - 💧 <strong>Liquidity:</strong> 25%<br>
@@ -311,65 +372,6 @@
         • 6,874 bonus SPORES 🎉</p></div></div>
       <div class="accordion-item"><button>❓ What should I do if I don't receive a DM with help or the guide?</button><div class="accordion-content"><p>Make sure your Discord privacy settings allow messages from server members. If not, enable them or ask a Mod for help.</p></div></div>
       <div class="accordion-item"><button>🔔 How do notifications work?</button><div class="accordion-content"><p>Tap the <strong>🔔 bell</strong> button to receive a 30-minute reminder before a Raffle or Airdrop ends. Tap again to disable reminders.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- Web3 Section -->
-<section id="web3" class="web3-info section-dark">
-  <div class="container">
-    <h2>🌐 Sporebot, Web3 & the Blockchain</h2>
-    <p class="intro">
-      Sporebot is a Discord-based bot that bridges gamified farming with real-world blockchain utility. Here's how it works:
-    </p>
-
-    <div class="web3-grid">
-      <div class="web3-card">
-        <h3>🔗 Wallet Registration</h3>
-        <p>
-          Players can link their <strong>Polygon wallet</strong> using the <strong>!register</strong> command.
-          This ensures all crypto earnings and interactions are tied to a secure, verified address.
-        </p>
-      </div>
-
-      <div class="web3-card">
-        <h3>💸 On-Chain Rewards</h3>
-        <p>
-          Earn <strong>SHROOMS</strong> and <strong>SPORES</strong> through gameplay, then use <strong>!withdraw</strong>
-          to receive them in your wallet via secure on-chain transactions powered by Web3.
-        </p>
-      </div>
-
-      <div class="web3-card">
-        <h3>📡 Live WEB3 Validation</h3>
-        <ul>
-          <li>✅ Checks wallet balances before sending.</li>
-          <li>✅ Interacts with smart contracts.</li>
-          <li>✅ Enforces limits, roles, and captcha verification.</li>
-        </ul>
-      </div>
-
-      <div class="web3-card">
-        <h3>🔍 Transparency & Trust</h3>
-        <p>
-          Every transaction is logged with timestamps both on-chain and in our secure backend. 
-          Full audit trails and anti-abuse systems ensure fairness for all.
-        </p>
-      </div>
-
-      <div class="web3-card">
-        <h3>🧬 NFT Role Rewards</h3>
-        <p>
-          Link your wallet and verify ownership with !nft to automatically earn 200,000 SPORES daily per King, Queen, or House Mooshie NFT.
-        </p>
-      </div>
-
-      <div class="web3-card">
-        <h3>🌱 Web3 on Polygon</h3>
-        <p>
-          Sporebot blends the fun of Discord with the real ownership of Web3. Earn, grow, and withdraw your rewards — all on the Polygon blockchain.
-        </p>
-      </div>
     </div>
   </div>
 </section>
