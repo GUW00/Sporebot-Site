@@ -6,7 +6,7 @@ const config = {
     title: "Welcome to Mushroom Planet",
     headerTitle: "Mushroom Planet",
     description: "The Official Home of the SHROOM & SPORE Token, Mooshie NFTs & Sporebot Farming! ",
-    url: "https://sporebot.example" // Update this to your actual domain
+    url: "https://mushroomplanet.earth/" // Update this to your actual domain
   },
 
   discord: {
